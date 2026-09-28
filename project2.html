@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AgriFuture | Modern Agriculture</title>
+
+    <style>
+        /* =========================
+           BASIC SETTINGS
+        ========================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f8f3;
+            color: #243424;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* =========================
+           HEADER
+        ========================== */
+        header {
+            background: linear-gradient(135deg, #173d2a, #28623f);
+            color: white;
+            padding: 18px 8%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #b8e986;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        nav a {
+            font-size: 14px;
+            padding: 7px 4px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #b8e986;
+        }
+
+        /* =========================
+           HERO SECTION
+        ========================== */
+        .hero {
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            padding: 60px 8%;
+            background:
+                linear-gradient(rgba(18, 55, 36, 0.78), rgba(28, 77, 48, 0.78)),
+                linear-gradient(135deg, #75a85b, #d7e9c5);
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero small {
+            color: #c9f19e;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 75px);
+            line-height: 1.05;
+            margin: 15px 0;
+        }
+
+        .hero h1 span {
+            color: #b8e986;
+        }
+
+        .hero p {
+            max-width: 680px;
+            font-size: 18px;
+            color: #edf8e7;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 22px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #b8e986;
+            color: #183b27;
+        }
+
+        .btn-secondary {
+            border: 1px solid white;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           GENERAL SECTION
+        ========================== */
+        section {
+            padding: 75px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 45px;
+        }
+
+        .section-title small {
+            color: #4d8a55;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            color: #1d442d;
+            margin: 8px 0;
+        }
+
+        .section-title p {
+            color: #607060;
+        }
+
+        /* =========================
+           INTRODUCTION
+        ========================== */
+        .intro {
+            background: white;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+            align-items: center;
+        }
+
+        .intro-box {
+            padding: 30px;
+            background: #eef7e9;
+            border-left: 5px solid #4d8a55;
+            border-radius: 12px;
+        }
+
+        .intro-box h3 {
+            color: #285b39;
+            margin-bottom: 12px;
+        }
+
+        .fact-box {
+            background: #1e4d31;
+            color: white;
+            padding: 35px;
+            border-radius: 18px;
+        }
+
+        .fact-box h3 {
+            color: #b8e986;
+            margin-bottom: 15px;
+        }
+
+        /* =========================
+           FARMING TYPES
+        ========================== */
+        .types {
+            background: #f4f8f3;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            padding: 28px;
+            border-radius: 16px;
+            border: 1px solid #dbe8d8;
+            box-shadow: 0 8px 25px rgba(31, 69, 39, 0.08);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 14px 30px rgba(31, 69, 39, 0.14);
+        }
+
+        .icon {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            color: #28603a;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: #657065;
+            font-size: 15px;
+        }
+
+        /* =========================
+           TECHNOLOGY
+        ========================== */
+        .technology {
+            background: #183d29;
+            color: white;
+        }
+
+        .technology .section-title h2 {
+            color: white;
+        }
+
+        .technology .section-title p {
+            color: #d3e4d5;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .tech-item {
+            background: #245538;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #39714d;
+        }
+
+        .tech-item h3 {
+            color: #b8e986;
+            margin-bottom: 8px;
+        }
+
+        .tech-item p {
+            color: #d8e7da;
+        }
+
+        /* =========================
+           TABLE
+        ========================== */
+        .table-section {
+            background: white;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        th {
+            background: #285d39;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        td {
+            padding: 14px 15px;
+            border-bottom: 1px solid #e0e8df;
+        }
+
+        tr:hover {
+            background: #f1f7ee;
+        }
+
+        /* =========================
+           BENEFITS
+        ========================== */
+        .benefits {
+            background: #edf6e9;
+        }
+
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+        }
+
+        .benefit-list {
+            list-style: none;
+        }
+
+        .benefit-list li {
+            background: white;
+            margin-bottom: 12px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .benefit-list li::before {
+            content: "✓";
+            color: #38834d;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .future-box {
+            background: linear-gradient(135deg, #326b43, #173d2a);
+            color: white;
+            padding: 30px;
+            border-radius: 18px;
+        }
+
+        .future-box h3 {
+            color: #b8e986;
+            margin-bottom: 12px;
+        }
+
+        /* =========================
+           PROCESS
+        ========================== */
+        .process {
+            background: white;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .step {
+            text-align: center;
+            padding: 25px 15px;
+            border-radius: 14px;
+            background: #f1f7ef;
+            border-top: 4px solid #4d8a55;
+        }
+
+        .number {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            background: #285d39;
+            color: white;
+            font-weight: bold;
+        }
+
+        .step h3 {
+            color: #285d39;
+            margin-bottom: 6px;
+        }
+
+        /* =========================
+           QUIZ
+        ========================== */
+        .quiz {
+            background: #f4f8f3;
+        }
+
+        .quiz-box {
+            max-width: 750px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
+
+        .quiz-box h3 {
+            color: #285d39;
+            margin-bottom: 20px;
+        }
+
+        .option {
+            display: block;
+            padding: 12px;
+            margin: 9px 0;
+            border: 1px solid #d5e1d3;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background: #edf7e9;
+        }
+
+        .quiz button {
+            border: none;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        /* =========================
+           CONTACT
+        ========================== */
+        .contact {
+            background: #183d29;
+            color: white;
+        }
+
+        .contact .section-title h2 {
+            color: white;
+        }
+
+        .contact-form {
+            max-width: 700px;
+            margin: auto;
+            background: #245538;
+            padding: 30px;
+            border-radius: 18px;
+        }
+
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 13px;
+            margin: 7px 0 15px;
+            border: none;
+            border-radius: 7px;
+            font-family: inherit;
+        }
+
+        .contact-form textarea {
+            height: 110px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            border: none;
+            cursor: pointer;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+        footer {
+            background: #10291b;
+            color: #b9cabb;
+            text-align: center;
+            padding: 25px;
+            font-size: 14px;
+        }
+
+        footer strong {
+            color: #b8e986;
+        }
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================== */
+        @media (max-width: 850px) {
+            .navbar {
+                flex-direction: column;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .intro-grid,
+            .benefit-grid,
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .steps {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 550px) {
+            section {
+                padding: 55px 5%;
+            }
+
+            .hero {
+                padding: 50px 5%;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .card-grid,
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                gap: 10px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <header>
+        <div class="navbar">
+
+            <div class="logo">
+                🌱 Agri<span>Future</span>
+            </div>
+
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#farming">Farming</a>
+                <a href="#technology">Technology</a>
+                <a href="#benefits">Benefits</a>
+                <a href="#quiz">Quiz</a>
+                <a href="#contact">Feedback</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- =========================
+         HOME
+    ========================== -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <small>CLASS 10 HTML PROJECT</small>
+
+            <h1>
+                The Future of<br>
+                <span>Modern Agriculture</span>
+            </h1>
+
+            <p>
+                Agriculture is changing with science, technology and
+                innovative ideas. Discover how modern farming can help
+                farmers produce more while protecting our natural resources.
+            </p>
+
+            <div class="buttons">
+                <a href="#about" class="btn btn-primary">
+                    Explore Project
+                </a>
+
+                <a href="#technology" class="btn btn-secondary">
+                    View Technology
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section class="intro" id="about">
+
+        <div class="section-title">
+
+            <small>Introduction</small>
+
+            <h2>What is Modern Agriculture?</h2>
+
+            <p>
+                Modern agriculture combines traditional farming knowledge
+                with science and technology.
+            </p>
+
+        </div>
+
+        <div class="intro-grid">
+
+            <div class="intro-box">
+
+                <h3>🌾 From Traditional to Modern</h3>
+
+                <p>
+                    Earlier, farmers depended mainly on human labour,
+                    animals and traditional tools. Today, machines,
+                    improved seeds, irrigation systems and digital
+                    technology are helping farmers work more efficiently.
+                </p>
+
+                <br>
+
+                <p>
+                    The goal is not only to increase production but also
+                    to use water, soil and energy responsibly.
+                </p>
+
+            </div>
+
+            <div class="fact-box">
+
+                <h3>Did You Know?</h3>
+
+                <p>
+                    Agriculture is connected with our daily life.
+                    The food we eat, many fibres used for clothing and
+                    several raw materials used by industries come from
+                    agricultural activities.
+                </p>
+
+                <br>
+
+                <p>
+                    Therefore, improving agriculture can contribute to
+                    a better future for society.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         TYPES OF FARMING
+    ========================== -->
+
+    <section class="types" id="farming">
+
+        <div class="section-title">
+
+            <small>Farming Methods</small>
+
+            <h2>Different Types of Farming</h2>
+
+            <p>
+                Different farming methods are used according to climate,
+                soil, water availability and the needs of farmers.
+            </p>
+
+        </div>
+
+        <div class="card-grid">
+
+            <div class="card">
+                <div class="icon">🌾</div>
+                <h3>Subsistence Farming</h3>
+                <p>
+                    Crops are mainly grown to meet the needs of the
+                    farmer and family.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🚜</div>
+                <h3>Commercial Farming</h3>
+                <p>
+                    Crops and other agricultural products are produced
+                    mainly for sale in markets.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🌿</div>
+                <h3>Organic Farming</h3>
+                <p>
+                    Farming that focuses on natural methods and reduces
+                    dependence on synthetic chemicals.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">💧</div>
+                <h3>Irrigated Farming</h3>
+                <p>
+                    Water is supplied to crops using systems such as
+                    canals, sprinklers and drip irrigation.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🏡</div>
+                <h3>Mixed Farming</h3>
+                <p>
+                    Crop production is combined with activities such as
+                    livestock rearing.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🌱</div>
+                <h3>Sustainable Farming</h3>
+                <p>
+                    Farming methods are planned to protect natural
+                    resources for future generations.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         TECHNOLOGY
+    ========================== -->
+
+    <section class="technology" id="technology">
+
+        <div class="section-title">
+
+            <small>Smart Agriculture</small>
+
+            <h2>Technology in Farming</h2>
+
+            <p>
+                Modern tools can help farmers save time, water and
+                resources while improving farm management.
+            </p>
+
+        </div>
+
+        <div class="tech-grid">
+
+            <div class="tech-item">
+
+                <h3>🚜 Agricultural Machines</h3>
+
+                <p>
+                    Tractors, harvesters, seed drills and other machines
+                    reduce manual labour and make farm operations faster.
+                </p>
+
+            </div>
+
+            <div class="tech-item">
+
+                <h3>💧 Drip Irrigation</h3>
+
+                <p>
+                    Drip irrigation supplies water close to the roots of
+                    plants and can help reduce unnecessary water loss.
+                </p>
+
+            </div>
+
+            <div class="tech-item">
+
+                <h3>🛰️ Satellite Technology</h3>
+
+                <p>
+                    Satellite images can provide information about crops,
+                    land and weather conditions.
+                </p>
+
+            </div>
+
+            <div class="tech-item">
+
+                <h3>📱 Mobile Technology</h3>
+
+                <p>
+                    Farmers can use mobile devices to access weather,
+                    market and agricultural information.
+                </p>
+
+            </div>
+
+            <div class="tech-item">
+
+                <h3>🌡️ Sensors</h3>
+
+                <p>
+                    Sensors can measure conditions such as soil moisture
+                    and temperature.
+                </p>
+
+            </div>
+
+            <div class="tech-item">
+
+                <h3>🤖 Artificial Intelligence</h3>
+
+                <p>
+                    AI can help analyse agricultural data and support
+                    decision-making in modern farming.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FARMING COMPARISON TABLE
+    ========================== -->
+
+    <section class="table-section">
+
+        <div class="section-title">
+
+            <small>Comparison</small>
+
+            <h2>Traditional vs Modern Farming</h2>
+
+            <p>
+                A simple comparison of some common characteristics.
+            </p>
+
+        </div>
+
+        <div class="table-container">
+
+            <table>
+
+                <tr>
+                    <th>Feature</th>
+                    <th>Traditional Farming</th>
+                    <th>Modern Farming</th>
+                </tr>
+
+                <tr>
+                    <td>Tools</td>
+                    <td>Simple tools</td>
+                    <td>Machines and improved equipment</td>
+                </tr>
+
+                <tr>
+                    <td>Irrigation</td>
+                    <td>Traditional methods</td>
+                    <td>Drip and sprinkler systems</td>
+                </tr>
+
+                <tr>
+                    <td>Information</td>
+                    <td>Mostly local knowledge</td>
+                    <td>Digital and scientific information</td>
+                </tr>
+
+                <tr>
+                    <td>Farm Management</td>
+                    <td>Mostly manual</td>
+                    <td>Data-supported methods</td>
+                </tr>
+
+                <tr>
+                    <td>Technology</td>
+                    <td>Limited</td>
+                    <td>Greater use of technology</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         BENEFITS
+    ========================== -->
+
+    <section class="benefits" id="benefits">
+
+        <div class="section-title">
+
+            <small>Importance</small>
+
+            <h2>Why Modern Agriculture Matters</h2>
+
+            <p>
+                Technology can support farmers, but responsible use of
+                natural resources remains important.
+            </p>
+
+        </div>
+
+        <div class="benefit-grid">
+
+            <div>
+
+                <ul class="benefit-list">
+
+                    <li>Better use of water</li>
+
+                    <li>Reduced manual effort</li>
+
+                    <li>Faster agricultural operations</li>
+
+                    <li>Improved farm planning</li>
+
+                    <li>Better access to information</li>
+
+                    <li>Efficient use of farm resources</li>
+
+                </ul>
+
+            </div>
+
+            <div class="future-box">
+
+                <h3>🌍 Agriculture and the Future</h3>
+
+                <p>
+                    Future agriculture can combine traditional knowledge
+                    with modern science. The focus should be on producing
+                    food efficiently while maintaining healthy soil,
+                    responsible water use and environmental protection.
+                </p>
+
+                <br>
+
+                <p>
+                    Technology is a tool. Good planning and responsible
+                    farming practices are equally important.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FARMING PROCESS
+    ========================== -->
+
+    <section class="process">
+
+        <div class="section-title">
+
+            <small>Basic Process</small>
+
+            <h2>From Seed to Harvest</h2>
+
+            <p>
+                A simplified view of the agricultural production process.
+            </p>
+
+        </div>
+
+        <div class="steps">
+
+            <div class="step">
+
+                <div class="number">1</div>
+
+                <h3>Prepare</h3>
+
+                <p>
+                    Prepare the soil and select suitable seeds.
+                </p>
+
+            </div>
+
+            <div class="step">
+
+                <div class="number">2</div>
+
+                <h3>Sow</h3>
+
+                <p>
+                    Place seeds in the soil at suitable depth and spacing.
+                </p>
+
+            </div>
+
+            <div class="step">
+
+                <div class="number">3</div>
+
+                <h3>Grow</h3>
+
+                <p>
+                    Provide suitable water, nutrients and protection.
+                </p>
+
+            </div>
+
+            <div class="step">
+
+                <div class="number">4</div>
+
+                <h3>Harvest</h3>
+
+                <p>
+                    Harvest mature crops and prepare them for storage.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         QUIZ
+    ========================== -->
+
+    <section class="quiz" id="quiz">
+
+        <div class="section-title">
+
+            <small>Knowledge Check</small>
+
+            <h2>Test Your Agriculture Knowledge</h2>
+
+            <p>
+                Answer this simple question to check what you learned.
+            </p>
+
+        </div>
+
+        <div class="quiz-box">
+
+            <h3>
+                Which irrigation method supplies water close to the
+                roots of plants?
+            </h3>
+
+            <label class="option">
+                <input type="radio" name="answer" value="wrong">
+                Flood irrigation
+            </label>
+
+            <label class="option">
+                <input type="radio" name="answer" value="correct">
+                Drip irrigation
+            </label>
+
+            <label class="option">
+                <input type="radio" name="answer" value="wrong">
+                Rain only
+            </label>
+
+            <label class="option">
+                <input type="radio" name="answer" value="wrong">
+                No irrigation
+            </label>
+
+            <button class="btn btn-primary" onclick="checkAnswer()">
+                Check Answer
+            </button>
+
+            <p id="result"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT / FEEDBACK
+    ========================== -->
+
+    <section class="contact" id="contact">
+
+        <div class="section-title">
+
+            <small>Student Feedback</small>
+
+            <h2>Share Your Thoughts</h2>
+
+            <p>
+                Use this form as a demonstration of HTML forms.
+            </p>
+
+        </div>
+
+        <form class="contact-form" onsubmit="submitForm(event)">
+
+            <label for="name">Your Name</label>
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+                required
+            >
+
+            <label for="class">Class</label>
+
+            <select id="class" required>
+
+                <option value="">Select class</option>
+
+                <option>Class 9</option>
+                <option>Class 10</option>
+                <option>Class 11</option>
+                <option>Class 12</option>
+
+            </select>
+
+            <label for="message">Your Message</label>
+
+            <textarea
+                id="message"
+                placeholder="Write your thoughts..."
+                required
+            ></textarea>
+
+            <button type="submit" class="btn btn-primary">
+                Submit Feedback
+            </button>
+
+            <p id="formResult"></p>
+
+        </form>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            <strong>AgriFuture</strong> — Modern Agriculture HTML Project
+        </p>
+
+        <p>
+            Created as a Class 10 educational project.
+        </p>
+
+        <p>
+            © 2026 AgriFuture | HTML & CSS Project
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+         Used only for the quiz and
+         feedback demonstration.
+    ========================== -->
+
+    <script>
+
+        function checkAnswer() {
+
+            let answers = document.getElementsByName("answer");
+            let selected = "";
+
+            for (let i = 0; i < answers.length; i++) {
+
+                if (answers[i].checked) {
+                    selected = answers[i].value;
+                }
+
+            }
+
+            let result = document.getElementById("result");
+
+            if (selected === "") {
+
+                result.innerHTML = "Please select an answer.";
+
+            } else if (selected === "correct") {
+
+                result.innerHTML =
+                    "✓ Correct! Drip irrigation supplies water close to the roots.";
+
+            } else {
+
+                result.innerHTML =
+                    "✗ Not quite. Try again!";
+
+            }
+
+        }
+
+
+        function submitForm(event) {
+
+            event.preventDefault();
+
+            let name = document.getElementById("name").value;
+
+            document.getElementById("formResult").innerHTML =
+                "✓ Thank you, " + name +
+                "! Your feedback has been recorded for this demonstration.";
+
+        }
+
+    </script>
+
+</body>
+</html>
